@@ -1,0 +1,13 @@
+.count {
+    width: 20px;
+    text-align: center;
+    color: #999;
+}
+
+.total-count {
+    font-size: 1.2em;
+}
+
+.count-button {
+    cursor: pointer;
+}
