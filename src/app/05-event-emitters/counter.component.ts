@@ -1,11 +1,11 @@
+import { EventEmitter } from '@angular/core';
 
-import { EventEmitter } from '@angular/core'; 
+export class CounterComponent {
+  totalCount = 0;
+  // EventEmitters are of type observables it takes type of value to be emitted.
+  countChanged = new EventEmitter<number>();
 
-export class CounterComponent { 
-  totalCount = 0; 
-  countChanged = new EventEmitter();
-
-  incrementCount() { 
+  incrementCount() {
     this.totalCount++;
     this.countChanged.emit(this.totalCount);
   }
