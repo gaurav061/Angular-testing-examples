@@ -6,16 +6,18 @@ describe('CounterComponent', () => {
   let component: CounterComponent;
   let fixture: ComponentFixture<CounterComponent>;
   beforeEach(() => {
-    // This will configure counter component and make it available for testing
+    // This is main utility for testing similar to NgModule it will resolve the dependency.
     TestBed.configureTestingModule({
       declarations: [CounterComponent],
     });
 
+    // fixture has the access to debugElement and have helper functions like detectChange()
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
   });
 
   it('should render total count', () => {
+    // instance of the component created in beforeEach block.
     component.initialCount = 10;
     component.myCount = 1;
     fixture.detectChanges();

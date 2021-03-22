@@ -1,25 +1,34 @@
+import { TodoService } from './todo.service';
 
-import { TodoService } from './todo.service'
-
-export class TodosComponent { 
+export class TodosComponent {
   todos: any[] = [];
-  message; 
+  message: string;
 
   constructor(private service: TodoService) {}
 
-  ngOnInit() { 
-    this.service.getTodos().subscribe((t:any) => this.todos = [...t]);
+  /**
+   * GET API call to get the list of initial todos list.
+   */
+  ngOnInit() {
+    this.service.getTodos().subscribe((t: any) => (this.todos = [...t]));
   }
 
-  add() { 
+  /**
+   * POST API call when a new todo is added.
+   */
+  add(): void {
     var newTodo = { title: '... ' };
     this.service.add(newTodo).subscribe(
-      t => this.todos.push(t),
-      err => this.message = err);
+      (t) => this.todos.push(t),
+      (err) => (this.message = err)
+    );
   }
 
-  delete(id) {
-    if (confirm('Are you sure?'))
-      this.service.delete(id).subscribe();
-  }  
+  /**
+   * DELETE API call to delete the todo.
+   * @param id todo id to be deleted.
+   */
+  delete(id: number): void {
+    if (confirm('Are you sure?')) this.service.delete(id).subscribe();
+  }
 }
