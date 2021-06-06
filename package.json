@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
+    "build:ci": "ng build --prod --sourceMap=false --base-href https://github.com/gaurav061/Angular-testing-examples",
+    "test:ci": "ng test --watch=false --code-coverage --source-map true",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
